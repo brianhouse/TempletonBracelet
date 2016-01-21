@@ -27,7 +27,7 @@
         <!--Devices-->
         <scene sceneID="BE4-Jw-tS7">
             <objects>
-                <tableViewController id="kW6-X9-BFY" customClass="ScanTableViewController" customModule="SwiftStarter" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="kW6-X9-BFY" customClass="ScanTableViewController" customModule="TempletonBracelet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="70" sectionHeaderHeight="10" sectionFooterHeight="10" id="QtD-L6-96F">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,10 +51,10 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MetaWearCell" id="NDI-dq-B72">
-                                <rect key="frame" x="0.0" y="176" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="175.5" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NDI-dq-B72" id="iDd-Pc-rSF">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-70" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ss-qj-YYj">
@@ -97,7 +97,7 @@
         <!--Saved Devices-->
         <scene sceneID="46G-AP-mNH">
             <objects>
-                <tableViewController id="D2l-i7-3Pw" customClass="MainTableViewController" customModule="SwiftStarter" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="D2l-i7-3Pw" customClass="MainTableViewController" customModule="TempletonBracelet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" id="ZNT-mh-b7h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
                                 <rect key="frame" x="0.0" y="88" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZEW-wz-LCx" id="hRw-ER-YXT">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="84.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MetaWear" translatesAutoresizingMaskIntoConstraints="NO" id="nSe-fd-aTp">
@@ -150,7 +150,7 @@
                                 <rect key="frame" x="0.0" y="173" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nbx-hf-jjn" id="Cji-TJ-CG1">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="84.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a MetaWear device to get started!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-en-AkV">
@@ -187,19 +187,19 @@
         <!--Device-->
         <scene sceneID="W8h-aN-Tr5">
             <objects>
-                <tableViewController id="ZgW-Xk-BIG" customClass="DeviceViewController" customModule="SwiftStarter" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ZgW-Xk-BIG" customClass="DeviceViewController" customModule="TempletonBracelet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gfN-9t-8AN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="2000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Info" id="ZWg-Oe-dXY" userLabel="Info">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="215" id="0ib-Kb-TR4">
-                                        <rect key="frame" x="0.0" y="114" width="320" height="215"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="320" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ib-Kb-TR4" id="s51-hx-4fG">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="214.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5x-Zt-lYd">
@@ -284,10 +284,10 @@
                             <tableViewSection headerTitle="Status" id="tS5-dR-PAP" userLabel="Status">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="119" id="vhc-P4-A1Q">
-                                        <rect key="frame" x="0.0" y="379" width="320" height="119"/>
+                                        <rect key="frame" x="0.0" y="378.5" width="320" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vhc-P4-A1Q" id="jRT-dW-0Rh">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="118.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="State:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZ5-46-jWO">
@@ -347,42 +347,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Accelerometer" id="gIy-1p-tHg" userLabel="Accelerometer">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="190" id="De0-7K-N8U">
-                                        <rect key="frame" x="0.0" y="548" width="320" height="190"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="De0-7K-N8U" id="N9L-tI-O4W">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rg-bV-4yj">
-                                                    <rect key="frame" x="14" y="7" width="108" height="30"/>
-                                                    <state key="normal" title="Start Streaming">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="startAccelerationPressed:" destination="ZgW-Xk-BIG" eventType="touchUpInside" id="lfu-10-Agw"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCR-wv-Xum">
-                                                    <rect key="frame" x="199" y="7" width="107" height="30"/>
-                                                    <state key="normal" title="Stop Streaming">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="stopAccelerationPressed:" destination="ZgW-Xk-BIG" eventType="touchUpInside" id="8tK-EB-VLO"/>
-                                                    </connections>
-                                                </button>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nh0-0m-YkV" customClass="APLGraphView">
-                                                    <rect key="frame" x="0.0" y="45" width="320" height="112"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="ZgW-Xk-BIG" id="ZSj-LP-dh1"/>
@@ -393,7 +357,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="2000"/>
                     <connections>
-                        <outlet property="accelerometerGraph" destination="Nh0-0m-YkV" id="bT1-UT-FZU"/>
                         <outlet property="batteryLevelLabel" destination="ZZk-vG-Eqq" id="VZ7-8I-16l"/>
                         <outlet property="connectionState" destination="4wN-B9-52K" id="hnl-3s-rmA"/>
                         <outlet property="deviceID" destination="wHk-0L-fb5" id="MYV-Ow-7zU"/>
@@ -404,8 +367,6 @@
                         <outlet property="modelNumberLabel" destination="DdP-9a-odx" id="sdR-ws-Tg9"/>
                         <outlet property="rssiLevelLabel" destination="V4q-uT-3J5" id="g9k-jx-4BR"/>
                         <outlet property="serialNumLabel" destination="OKM-du-6Mp" id="pne-QG-SA1"/>
-                        <outlet property="startAccelerometer" destination="7rg-bV-4yj" id="i3r-KE-9T4"/>
-                        <outlet property="stopAccelerometer" destination="QCR-wv-Xum" id="gjQ-W8-Fd5"/>
                         <outlet property="switchLabel" destination="vQg-bl-Chj" id="WMi-cA-JJt"/>
                     </connections>
                 </tableViewController>
