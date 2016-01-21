@@ -3,14 +3,17 @@ PODS:
   - MBProgressHUD (0.9.2)
   - Metawear-iOSAPI (2.0.0):
     - Bolts/Tasks (~> 1.5)
+  - Starscream (1.1.1)
 
 DEPENDENCIES:
   - MBProgressHUD
   - Metawear-iOSAPI
+  - Starscream (~> 1.1.1)
 
 SPEC CHECKSUMS:
   Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   Metawear-iOSAPI: 1a16d8f45cee76f1e18b11cb6f34dac01ce28b36
+  Starscream: d74dd8d122a6abd244d8d5e51f32891c796d0827
 
 COCOAPODS: 0.39.0

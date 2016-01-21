@@ -82,3 +82,14 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-TempletonBracelet/Bolts.framework"
+  install_framework "Pods-TempletonBracelet/MBProgressHUD.framework"
+  install_framework "Pods-TempletonBracelet/Starscream.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-TempletonBracelet/Bolts.framework"
+  install_framework "Pods-TempletonBracelet/MBProgressHUD.framework"
+  install_framework "Pods-TempletonBracelet/Starscream.framework"
+fi

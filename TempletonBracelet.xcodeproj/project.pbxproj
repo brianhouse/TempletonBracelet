@@ -16,6 +16,7 @@
 		40E1E85A1BCDD31F00D90A72 /* SwiftStarterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1E8591BCDD31F00D90A72 /* SwiftStarterUITests.swift */; };
 		40E427651BD16466005F94E9 /* ScanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E427641BD16466005F94E9 /* ScanTableViewController.swift */; };
 		447EEF543D19D7C2917DA076 /* libPods-SwiftStarter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 435A7123390E63E182FB82FF /* libPods-SwiftStarter.a */; };
+		50C4AC2BF6C2A9CC414BF5A6 /* Pods_TempletonBracelet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E7992A613AA9DD52F387CDD /* Pods_TempletonBracelet.framework */; };
 		DFF126BF1C3EF1E1000881E0 /* APLGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF126BE1C3EF1E1000881E0 /* APLGraphView.m */; };
 		DFF126C21C3EF1F3000881E0 /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF126C11C3EF1F3000881E0 /* AccelerometerFilter.m */; };
 /* End PBXBuildFile section */
@@ -40,21 +41,24 @@
 /* Begin PBXFileReference section */
 		21E4965E6B06E62B1529A00F /* Pods-SwiftStarter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftStarter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftStarter/Pods-SwiftStarter.debug.xcconfig"; sourceTree = "<group>"; };
 		4023B4B01BD7113D00FE563B /* DeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
-		4031C58E1BCDD53700A4756A /* SwiftStarter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftStarter-Bridging-Header.h"; sourceTree = "<group>"; };
+		4031C58E1BCDD53700A4756A /* Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		406592681BD1D64600C9215A /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
-		40E1E8361BCDD31F00D90A72 /* TempletonCollar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TempletonCollar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40E1E8361BCDD31F00D90A72 /* TempletonBracelet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TempletonBracelet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E1E8391BCDD31F00D90A72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40E1E83E1BCDD31F00D90A72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40E1E8401BCDD31F00D90A72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40E1E8451BCDD31F00D90A72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40E1E84A1BCDD31F00D90A72 /* TempletonCollar.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TempletonCollar.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40E1E84A1BCDD31F00D90A72 /* TempletonBracelet.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TempletonBracelet.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E1E84E1BCDD31F00D90A72 /* SwiftStarterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStarterTests.swift; sourceTree = "<group>"; };
 		40E1E8501BCDD31F00D90A72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40E1E8551BCDD31F00D90A72 /* TempletonCollar.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TempletonCollar.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40E1E8551BCDD31F00D90A72 /* TempletonBracelet.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TempletonBracelet.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E1E8591BCDD31F00D90A72 /* SwiftStarterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStarterUITests.swift; sourceTree = "<group>"; };
 		40E1E85B1BCDD31F00D90A72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E427641BD16466005F94E9 /* ScanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTableViewController.swift; sourceTree = "<group>"; };
 		435A7123390E63E182FB82FF /* libPods-SwiftStarter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftStarter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E7992A613AA9DD52F387CDD /* Pods_TempletonBracelet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TempletonBracelet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A8C6403FE4FEF6CDED6734A /* Pods-TempletonBracelet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TempletonBracelet.release.xcconfig"; path = "Pods/Target Support Files/Pods-TempletonBracelet/Pods-TempletonBracelet.release.xcconfig"; sourceTree = "<group>"; };
+		89C38397744597B8322E31A8 /* Pods-TempletonBracelet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TempletonBracelet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TempletonBracelet/Pods-TempletonBracelet.debug.xcconfig"; sourceTree = "<group>"; };
 		9FD61B03AB555AB2B7CC26BD /* Pods-SwiftStarter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftStarter.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftStarter/Pods-SwiftStarter.release.xcconfig"; sourceTree = "<group>"; };
 		DFF126BD1C3EF1D3000881E0 /* APLGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APLGraphView.h; path = Accelerometer/APLGraphView.h; sourceTree = SOURCE_ROOT; };
 		DFF126BE1C3EF1E1000881E0 /* APLGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APLGraphView.m; path = Accelerometer/APLGraphView.m; sourceTree = SOURCE_ROOT; };
@@ -68,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				447EEF543D19D7C2917DA076 /* libPods-SwiftStarter.a in Frameworks */,
+				50C4AC2BF6C2A9CC414BF5A6 /* Pods_TempletonBracelet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,9 +96,9 @@
 		40E1E82D1BCDD31F00D90A72 = {
 			isa = PBXGroup;
 			children = (
-				40E1E8381BCDD31F00D90A72 /* TempletonCollar */,
-				40E1E84D1BCDD31F00D90A72 /* TempletonCollarTests */,
-				40E1E8581BCDD31F00D90A72 /* TempletonCollarUITests */,
+				40E1E8381BCDD31F00D90A72 /* TempletonBracelet */,
+				40E1E84D1BCDD31F00D90A72 /* TempletonBraceletTests */,
+				40E1E8581BCDD31F00D90A72 /* TempletonBraceletUITests */,
 				40E1E8371BCDD31F00D90A72 /* Products */,
 				A390E6317604CA6B47CCFF8A /* Pods */,
 				8BF9CA5E9C8FBDAC3DBA8764 /* Frameworks */,
@@ -103,14 +108,14 @@
 		40E1E8371BCDD31F00D90A72 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				40E1E8361BCDD31F00D90A72 /* TempletonCollar.app */,
-				40E1E84A1BCDD31F00D90A72 /* TempletonCollar.xctest */,
-				40E1E8551BCDD31F00D90A72 /* TempletonCollar.xctest */,
+				40E1E8361BCDD31F00D90A72 /* TempletonBracelet.app */,
+				40E1E84A1BCDD31F00D90A72 /* TempletonBracelet.xctest */,
+				40E1E8551BCDD31F00D90A72 /* TempletonBracelet.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		40E1E8381BCDD31F00D90A72 /* TempletonCollar */ = {
+		40E1E8381BCDD31F00D90A72 /* TempletonBracelet */ = {
 			isa = PBXGroup;
 			children = (
 				DFF126BD1C3EF1D3000881E0 /* APLGraphView.h */,
@@ -124,36 +129,34 @@
 				40E1E83D1BCDD31F00D90A72 /* Main.storyboard */,
 				40E1E8401BCDD31F00D90A72 /* Assets.xcassets */,
 				40E1E8451BCDD31F00D90A72 /* Info.plist */,
-				4031C58E1BCDD53700A4756A /* SwiftStarter-Bridging-Header.h */,
+				4031C58E1BCDD53700A4756A /* Swift-Bridging-Header.h */,
 			);
-			name = TempletonCollar;
-			path = SwiftStarter;
+			path = TempletonBracelet;
 			sourceTree = "<group>";
 		};
-		40E1E84D1BCDD31F00D90A72 /* TempletonCollarTests */ = {
+		40E1E84D1BCDD31F00D90A72 /* TempletonBraceletTests */ = {
 			isa = PBXGroup;
 			children = (
 				40E1E84E1BCDD31F00D90A72 /* SwiftStarterTests.swift */,
 				40E1E8501BCDD31F00D90A72 /* Info.plist */,
 			);
-			name = TempletonCollarTests;
-			path = SwiftStarterTests;
+			path = TempletonBraceletTests;
 			sourceTree = "<group>";
 		};
-		40E1E8581BCDD31F00D90A72 /* TempletonCollarUITests */ = {
+		40E1E8581BCDD31F00D90A72 /* TempletonBraceletUITests */ = {
 			isa = PBXGroup;
 			children = (
 				40E1E8591BCDD31F00D90A72 /* SwiftStarterUITests.swift */,
 				40E1E85B1BCDD31F00D90A72 /* Info.plist */,
 			);
-			name = TempletonCollarUITests;
-			path = SwiftStarterUITests;
+			path = TempletonBraceletUITests;
 			sourceTree = "<group>";
 		};
 		8BF9CA5E9C8FBDAC3DBA8764 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				435A7123390E63E182FB82FF /* libPods-SwiftStarter.a */,
+				4E7992A613AA9DD52F387CDD /* Pods_TempletonBracelet.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,6 +166,8 @@
 			children = (
 				21E4965E6B06E62B1529A00F /* Pods-SwiftStarter.debug.xcconfig */,
 				9FD61B03AB555AB2B7CC26BD /* Pods-SwiftStarter.release.xcconfig */,
+				89C38397744597B8322E31A8 /* Pods-TempletonBracelet.debug.xcconfig */,
+				6A8C6403FE4FEF6CDED6734A /* Pods-TempletonBracelet.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -170,9 +175,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		40E1E8351BCDD31F00D90A72 /* TempletonCollar */ = {
+		40E1E8351BCDD31F00D90A72 /* TempletonBracelet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 40E1E85E1BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonCollar" */;
+			buildConfigurationList = 40E1E85E1BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonBracelet" */;
 			buildPhases = (
 				BF19DFA3B8D46A07CC25B23D /* Check Pods Manifest.lock */,
 				40E1E8321BCDD31F00D90A72 /* Sources */,
@@ -185,14 +190,14 @@
 			);
 			dependencies = (
 			);
-			name = TempletonCollar;
+			name = TempletonBracelet;
 			productName = SwiftStarter;
-			productReference = 40E1E8361BCDD31F00D90A72 /* TempletonCollar.app */;
+			productReference = 40E1E8361BCDD31F00D90A72 /* TempletonBracelet.app */;
 			productType = "com.apple.product-type.application";
 		};
-		40E1E8491BCDD31F00D90A72 /* TempletonCollarTests */ = {
+		40E1E8491BCDD31F00D90A72 /* TempletonBraceletTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 40E1E8611BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonCollarTests" */;
+			buildConfigurationList = 40E1E8611BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonBraceletTests" */;
 			buildPhases = (
 				40E1E8461BCDD31F00D90A72 /* Sources */,
 				40E1E8471BCDD31F00D90A72 /* Frameworks */,
@@ -203,14 +208,14 @@
 			dependencies = (
 				40E1E84C1BCDD31F00D90A72 /* PBXTargetDependency */,
 			);
-			name = TempletonCollarTests;
+			name = TempletonBraceletTests;
 			productName = SwiftStarterTests;
-			productReference = 40E1E84A1BCDD31F00D90A72 /* TempletonCollar.xctest */;
+			productReference = 40E1E84A1BCDD31F00D90A72 /* TempletonBracelet.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		40E1E8541BCDD31F00D90A72 /* TempletonCollarUITests */ = {
+		40E1E8541BCDD31F00D90A72 /* TempletonBraceletUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 40E1E8641BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonCollarUITests" */;
+			buildConfigurationList = 40E1E8641BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonBraceletUITests" */;
 			buildPhases = (
 				40E1E8511BCDD31F00D90A72 /* Sources */,
 				40E1E8521BCDD31F00D90A72 /* Frameworks */,
@@ -221,9 +226,9 @@
 			dependencies = (
 				40E1E8571BCDD31F00D90A72 /* PBXTargetDependency */,
 			);
-			name = TempletonCollarUITests;
+			name = TempletonBraceletUITests;
 			productName = SwiftStarterUITests;
-			productReference = 40E1E8551BCDD31F00D90A72 /* TempletonCollar.xctest */;
+			productReference = 40E1E8551BCDD31F00D90A72 /* TempletonBracelet.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -250,7 +255,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 40E1E8311BCDD31F00D90A72 /* Build configuration list for PBXProject "TempletonCollar" */;
+			buildConfigurationList = 40E1E8311BCDD31F00D90A72 /* Build configuration list for PBXProject "TempletonBracelet" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -263,9 +268,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				40E1E8351BCDD31F00D90A72 /* TempletonCollar */,
-				40E1E8491BCDD31F00D90A72 /* TempletonCollarTests */,
-				40E1E8541BCDD31F00D90A72 /* TempletonCollarUITests */,
+				40E1E8351BCDD31F00D90A72 /* TempletonBracelet */,
+				40E1E8491BCDD31F00D90A72 /* TempletonBraceletTests */,
+				40E1E8541BCDD31F00D90A72 /* TempletonBraceletUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -309,7 +314,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftStarter/Pods-SwiftStarter-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TempletonBracelet/Pods-TempletonBracelet-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		55E4BEEF2A8DC223E5B0C41C /* Copy Pods Resources */ = {
@@ -324,7 +329,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftStarter/Pods-SwiftStarter-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TempletonBracelet/Pods-TempletonBracelet-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BF19DFA3B8D46A07CC25B23D /* Check Pods Manifest.lock */ = {
@@ -379,12 +384,12 @@
 /* Begin PBXTargetDependency section */
 		40E1E84C1BCDD31F00D90A72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 40E1E8351BCDD31F00D90A72 /* TempletonCollar */;
+			target = 40E1E8351BCDD31F00D90A72 /* TempletonBracelet */;
 			targetProxy = 40E1E84B1BCDD31F00D90A72 /* PBXContainerItemProxy */;
 		};
 		40E1E8571BCDD31F00D90A72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 40E1E8351BCDD31F00D90A72 /* TempletonCollar */;
+			target = 40E1E8351BCDD31F00D90A72 /* TempletonBracelet */;
 			targetProxy = 40E1E8561BCDD31F00D90A72 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -441,6 +446,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "TempletonBracelet/Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -478,46 +484,47 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "TempletonBracelet/Swift-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		40E1E85F1BCDD31F00D90A72 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21E4965E6B06E62B1529A00F /* Pods-SwiftStarter.debug.xcconfig */;
+			baseConfigurationReference = 89C38397744597B8322E31A8 /* Pods-TempletonBracelet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = SwiftStarter/Info.plist;
+				INFOPLIST_FILE = TempletonBracelet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.brianhouse.TempletonCollar;
-				PRODUCT_NAME = TempletonCollar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianhouse.TempletonBracelet;
+				PRODUCT_NAME = TempletonBracelet;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftStarter/SwiftStarter-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "TempletonBracelet/Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		40E1E8601BCDD31F00D90A72 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9FD61B03AB555AB2B7CC26BD /* Pods-SwiftStarter.release.xcconfig */;
+			baseConfigurationReference = 6A8C6403FE4FEF6CDED6734A /* Pods-TempletonBracelet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = SwiftStarter/Info.plist;
+				INFOPLIST_FILE = TempletonBracelet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.brianhouse.TempletonCollar;
-				PRODUCT_NAME = TempletonCollar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianhouse.TempletonBracelet;
+				PRODUCT_NAME = TempletonBracelet;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftStarter/SwiftStarter-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "TempletonBracelet/Swift-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -528,8 +535,8 @@
 				INFOPLIST_FILE = SwiftStarterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.SwiftStarterTests;
-				PRODUCT_NAME = TempletonCollar;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TempletonCollar.app/TempletonCollar";
+				PRODUCT_NAME = TempletonBracelet;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TempletonBracelet.app/TempletonBracelet";
 			};
 			name = Debug;
 		};
@@ -540,8 +547,8 @@
 				INFOPLIST_FILE = SwiftStarterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.SwiftStarterTests;
-				PRODUCT_NAME = TempletonCollar;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TempletonCollar.app/TempletonCollar";
+				PRODUCT_NAME = TempletonBracelet;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TempletonBracelet.app/TempletonBracelet";
 			};
 			name = Release;
 		};
@@ -551,7 +558,7 @@
 				INFOPLIST_FILE = SwiftStarterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.SwiftStarterUITests;
-				PRODUCT_NAME = TempletonCollar;
+				PRODUCT_NAME = TempletonBracelet;
 				TEST_TARGET_NAME = SwiftStarter;
 				USES_XCTRUNNER = YES;
 			};
@@ -563,7 +570,7 @@
 				INFOPLIST_FILE = SwiftStarterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbientlab.SwiftStarterUITests;
-				PRODUCT_NAME = TempletonCollar;
+				PRODUCT_NAME = TempletonBracelet;
 				TEST_TARGET_NAME = SwiftStarter;
 				USES_XCTRUNNER = YES;
 			};
@@ -572,7 +579,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		40E1E8311BCDD31F00D90A72 /* Build configuration list for PBXProject "TempletonCollar" */ = {
+		40E1E8311BCDD31F00D90A72 /* Build configuration list for PBXProject "TempletonBracelet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				40E1E85C1BCDD31F00D90A72 /* Debug */,
@@ -581,7 +588,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		40E1E85E1BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonCollar" */ = {
+		40E1E85E1BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonBracelet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				40E1E85F1BCDD31F00D90A72 /* Debug */,
@@ -590,7 +597,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		40E1E8611BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonCollarTests" */ = {
+		40E1E8611BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonBraceletTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				40E1E8621BCDD31F00D90A72 /* Debug */,
@@ -599,7 +606,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		40E1E8641BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonCollarUITests" */ = {
+		40E1E8641BCDD31F00D90A72 /* Build configuration list for PBXNativeTarget "TempletonBraceletUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				40E1E8651BCDD31F00D90A72 /* Debug */,

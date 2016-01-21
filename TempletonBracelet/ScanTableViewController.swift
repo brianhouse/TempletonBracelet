@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol ScanTableViewControllerDelegate {
     func scanTableViewController(controller: ScanTableViewController, didSelectDevice device: MBLMetaWear)
