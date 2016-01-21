@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Starscream
 
 class DeviceViewController: UITableViewController {
     
@@ -23,6 +24,7 @@ class DeviceViewController: UITableViewController {
     @IBOutlet weak var switchLabel: UILabel!
     
     var device: MBLMetaWear!
+    var socket: WebSocket!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
@@ -84,6 +86,10 @@ class DeviceViewController: UITableViewController {
         
         // set up handlers
         self.device.mechanicalSwitch?.switchUpdateEvent.startNotificationsWithHandlerAsync(mechanicalSwitchUpdate);
+        
+        socket = WebSocket(url: NSURL(string: "ws://localhost:8080/")!)
+        socket.delegate = self as? WebSocketDelegate;
+        socket.connect();
 
         
     }
@@ -129,6 +135,22 @@ class DeviceViewController: UITableViewController {
                 self.device.led?.setLEDOnAsync(false, withOptions: 1);
             }
         }
+    }
+    
+    func websocketDidConnect(socket: WebSocket) {
+        NSLog("websocketDidConnect")
+    }
+    
+    func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
+        NSLog("websocketDidDisconnect: \(error?.localizedDescription)")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocket, text: String) {
+        NSLog("websocketDidReceiveMessage: \(text)")
+    }
+    
+    func websocketDidReceiveData(socket: WebSocket, data: NSData) {
+        NSLog("websocketDidReceiveData: \(data.length)")
     }
     
     // TODO: periodic updates for RSSI and battery
