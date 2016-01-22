@@ -8,6 +8,7 @@
 
 import UIKit
 import Starscream
+import Foundation
 
 class DeviceViewController: UITableViewController, WebSocketDelegate {
     
@@ -25,6 +26,7 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
     
     var device: MBLMetaWear!
     var socket: WebSocket!
+    var socket_id: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -161,8 +163,46 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
     
     func websocketDidReceiveMessage(socket: WebSocket, text: String) {
         NSLog("websocketDidReceiveMessage: \(text)")
-        self.delay(2.0) {
-            self.sendPulse(0.8, duration: 500);
+        
+        var data: [String: AnyObject]? = nil;
+        do {
+            data = try NSJSONSerialization.JSONObjectWithData(text.dataUsingEncoding(NSUTF8StringEncoding)!, options: .MutableLeaves) as? [String: AnyObject] // how do I do no options? nil fails
+        } catch {
+            NSLog("--> error serializing JSON: \(error)")
+        }
+        
+        
+        
+        if data != nil {
+            for (key, value) in data! {
+                NSLog("\(key): \(value)");
+                
+                // handshake sequence
+                if key == "socket_id" {
+                    self.socket_id = value as? String;
+                    // send the deviceID back
+                    self.socket.writeString("{\"device_id\": \"\(self.device.deviceInfo!.serialNumber)\"}");
+                }
+                if key == "linked" {
+                    if value as! Bool == true {
+                        NSLog("--> link established")
+                        self.sendPulse(0.5, duration: 500);
+                    } else {
+                        NSLog("--> link failed")
+                    }
+                }
+                
+                // handle pulses
+                if key == "pulses" {
+                    
+                }
+                
+//                self.delay(2.0) {
+//                    self.sendPulse(0.8, duration: 500);
+//                }
+                
+                
+            }
         }
     }
     
