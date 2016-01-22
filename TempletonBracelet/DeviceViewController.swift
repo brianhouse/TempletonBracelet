@@ -9,7 +9,7 @@
 import UIKit
 import Starscream
 
-class DeviceViewController: UITableViewController {
+class DeviceViewController: UITableViewController, WebSocketDelegate {
     
     @IBOutlet weak var connectionState: UILabel!
     @IBOutlet weak var deviceName: UILabel!
@@ -24,7 +24,14 @@ class DeviceViewController: UITableViewController {
     @IBOutlet weak var switchLabel: UILabel!
     
     var device: MBLMetaWear!
-    var socket: WebSocket!
+    var socket: WebSocket = WebSocket(url: NSURL(string: "ws://granu.local:5280/websocket")!)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        socket.delegate = self
+        socket.connect()
+        NSLog("Connecting to socket...")
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
@@ -87,11 +94,6 @@ class DeviceViewController: UITableViewController {
         // set up handlers
         self.device.mechanicalSwitch?.switchUpdateEvent.startNotificationsWithHandlerAsync(mechanicalSwitchUpdate);
         
-        socket = WebSocket(url: NSURL(string: "ws://localhost:8080/")!)
-        socket.delegate = self as? WebSocketDelegate;
-        socket.connect();
-
-        
     }
     
     @IBAction func readBatteryPressed(sender: AnyObject?=nil) {
@@ -103,7 +105,7 @@ class DeviceViewController: UITableViewController {
         });
     }
     
-
+    // change these to notifications, yeah?
     @IBAction func readRSSIPressed(sender: AnyObject?=nil) {
         NSLog("readRSSIPressed");
         self.device.readRSSIWithHandler({ (number: NSNumber?, error: NSError?) in
