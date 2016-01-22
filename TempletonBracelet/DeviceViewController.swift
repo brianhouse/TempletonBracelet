@@ -24,13 +24,12 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
     @IBOutlet weak var switchLabel: UILabel!
     
     var device: MBLMetaWear!
-    var socket: WebSocket = WebSocket(url: NSURL(string: "ws://granu.local:5280/websocket")!)
+    var socket: WebSocket!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        socket.delegate = self
-        socket.connect()
-        NSLog("Connecting to socket...")
+        self.socket = WebSocket(url: NSURL(string: "ws://granu.local:5280/websocket")!)
+        self.socket.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -50,7 +49,7 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath != nil {
-            NSLog("KeyPath: " + keyPath!);
+            // NSLog("KeyPath: " + keyPath!);
         }
         self.deviceName.text = device.name;
         switch (device.state) {
@@ -79,8 +78,8 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
             self.fwRevLabel.text = deviceInfo.firmwareRevision;
             self.modelNumberLabel.text = deviceInfo.modelNumber;
         }
-        self.readBatteryPressed();
-        self.readRSSIPressed();
+        
+        // detect button (presumably never pressed on startup...)
         self.device.mechanicalSwitch?.switchValue.readAsync().success({ (obj:AnyObject?) in
             if let result = obj as? MBLNumericData {
                 if result.value.boolValue {
@@ -91,8 +90,20 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
             }
         });
         
+        // periodically read battery
+        //// TODO: does that drain the battery? disable when pushing to the background?
+        self.readBatteryPressed();
+        self.readRSSIPressed();
+        NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("readBatteryPressed:"), userInfo: nil, repeats: true) // note the colon
+        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("readRSSIPressed:"), userInfo: nil, repeats: true) // note the colon
+        
+        
         // set up handlers
         self.device.mechanicalSwitch?.switchUpdateEvent.startNotificationsWithHandlerAsync(mechanicalSwitchUpdate);
+        
+        // connect to server
+        NSLog("Connecting to socket...")
+        self.socket.connect()
         
     }
     
@@ -120,9 +131,9 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
         self.device.led?.flashLEDColorAsync(UIColor.blueColor(), withIntensity: 1.0, numberOfFlashes: 5);
     }
 
-    @IBAction func buzzPressed(sender: AnyObject?=nil) {
-        NSLog("buzzPressed");
-        self.device.hapticBuzzer!.startHapticWithDutyCycleAsync(248, pulseWidth: 500, completion: nil);
+    func sendPulse(dutyCycle: Float, duration: UInt16) {
+        NSLog("pulse");
+        self.device.hapticBuzzer!.startHapticWithDutyCycleAsync(UInt8(dutyCycle * 255), pulseWidth: duration, completion: nil);
     }
 
     func mechanicalSwitchUpdate(obj: AnyObject?, error: NSError?) {
@@ -145,16 +156,29 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
     
     func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
         NSLog("websocketDidDisconnect: \(error?.localizedDescription)")
+        // TODO: should attempt to reconnect
     }
     
     func websocketDidReceiveMessage(socket: WebSocket, text: String) {
         NSLog("websocketDidReceiveMessage: \(text)")
+        self.delay(2.0) {
+            self.sendPulse(0.8, duration: 500);
+        }
     }
     
     func websocketDidReceiveData(socket: WebSocket, data: NSData) {
         NSLog("websocketDidReceiveData: \(data.length)")
     }
     
-    // TODO: periodic updates for RSSI and battery
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    // TODO: what happens when we get disconnected? need to kill the counters, etc
     
 }
