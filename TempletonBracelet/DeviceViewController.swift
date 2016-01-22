@@ -124,9 +124,9 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
         });
     }
 
-    func sendPulse(dutyCycle: Float, duration: UInt16) {
-        NSLog("sendPulse \(dutyCycle) \(duration)");
-        self.device.hapticBuzzer!.startHapticWithDutyCycleAsync(UInt8(dutyCycle * 255), pulseWidth: duration, completion: nil);
+    func sendPulse(intensity: Float, duration: UInt16) {
+        NSLog("sendPulse \(intensity) \(duration)");
+        self.device.hapticBuzzer!.startHapticWithDutyCycleAsync(UInt8(intensity * 255), pulseWidth: duration, completion: nil);
     }
 
     func mechanicalSwitchUpdate(obj: AnyObject?, error: NSError?) {
@@ -178,7 +178,7 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
                     self.socket.writeString("{\"device_id\": \"\(self.device.deviceInfo!.serialNumber)\"}");
                 }
                 if key == "linked" {
-                    if value as! Bool == true {
+                    if value as? Bool == true {
                         NSLog("--> link established")
                         self.serverState.text = "Connected";
                         self.sendPulse(0.5, duration: 500);
@@ -190,9 +190,24 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
                 
                 // handle pulses
                 if key == "pulses" {
-                    
+                    if let pulses = value as? [AnyObject] {
+                        for pulse in pulses {
+                            NSLog("\(pulse)")
+                            if let params = pulse as? [AnyObject] {
+                                if let intensity = params[0] as? Float {
+                                    if let duration = params[1] as? Int {
+                                        self.sendPulse(intensity, duration: UInt16(duration))
+                                    } else {
+                                        NSLog("--> bad duration \(params[1])")
+                                    }
+                                } else {
+                                    NSLog("--> bad intensity \(params[0])");
+                                }
+                            }
+                        }
+                    }
                 }
-                
+            
 //                self.delay(2.0) {
 //                    self.sendPulse(0.8, duration: 500);
 //                }
