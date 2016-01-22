@@ -126,7 +126,9 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
 
     func sendPulse(intensity: Float, duration: UInt16) {
         NSLog("sendPulse \(intensity) \(duration)");
-        self.device.hapticBuzzer!.startHapticWithDutyCycleAsync(UInt8(intensity * 255), pulseWidth: duration, completion: nil);
+        if intensity > 0.0 {
+            self.device.hapticBuzzer!.startHapticWithDutyCycleAsync(UInt8(intensity * 255), pulseWidth: duration, completion: nil);
+        }
     }
 
     func mechanicalSwitchUpdate(obj: AnyObject?, error: NSError?) {
@@ -191,12 +193,17 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
                 // handle pulses
                 if key == "pulses" {
                     if let pulses = value as? [AnyObject] {
+                        var d: Int = 0;
                         for pulse in pulses {
-                            NSLog("\(pulse)")
+                            // NSLog("\(pulse)")
                             if let params = pulse as? [AnyObject] {
                                 if let intensity = params[0] as? Float {
                                     if let duration = params[1] as? Int {
-                                        self.sendPulse(intensity, duration: UInt16(duration))
+                                        NSLog("delay: \(d)");
+                                        self.delay(Double(d) / 1000) {
+                                            self.sendPulse(intensity, duration: UInt16(duration))
+                                        }
+                                        d += duration;
                                     } else {
                                         NSLog("--> bad duration \(params[1])")
                                     }
@@ -207,11 +214,6 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
                         }
                     }
                 }
-            
-//                self.delay(2.0) {
-//                    self.sendPulse(0.8, duration: 500);
-//                }
-                
                 
             }
         }
