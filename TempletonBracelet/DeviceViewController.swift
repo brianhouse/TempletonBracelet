@@ -13,13 +13,9 @@ import Foundation
 class DeviceViewController: UITableViewController, WebSocketDelegate {
     
     @IBOutlet weak var connectionState: UILabel!
-    @IBOutlet weak var deviceName: UILabel!
-    @IBOutlet weak var deviceID: UILabel!
-    @IBOutlet weak var mfgNameLabel: UILabel!
+    @IBOutlet weak var serverState: UILabel!
     @IBOutlet weak var serialNumLabel: UILabel!
-    @IBOutlet weak var hwRevLabel: UILabel!
     @IBOutlet weak var fwRevLabel: UILabel!
-    @IBOutlet weak var modelNumberLabel: UILabel!
     @IBOutlet weak var batteryLevelLabel: UILabel!
     @IBOutlet weak var rssiLevelLabel: UILabel!
     @IBOutlet weak var switchLabel: UILabel!
@@ -51,19 +47,23 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath != nil {
-            // NSLog("KeyPath: " + keyPath!);
+             NSLog("KeyPath: " + keyPath!);
         }
-        self.deviceName.text = device.name;
         switch (device.state) {
             case .Connected:
+                NSLog("State: connected");
                 self.connectionState.text = "Connected";
             case .Connecting:
+                NSLog("State: connecting");
                 self.connectionState.text = "Connecting";
             case .Disconnected:
+                NSLog("State: disconnected");
                 self.connectionState.text = "Disconnected";
             case .Disconnecting:
+                NSLog("State: disconnecting");
                 self.connectionState.text = "Disconnecting";
             case .Discovery:
+                NSLog("State: discovery");
                 self.connectionState.text = "Discovery";
         }
         // do something if disconnected?
@@ -72,13 +72,9 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
     func deviceConnected() {
         NSLog("deviceConnected");
         self.connectionState.text = "Connected";
-        self.deviceID.text = self.device.identifier.UUIDString;
         if let deviceInfo = self.device.deviceInfo {
-            self.mfgNameLabel.text = deviceInfo.manufacturerName;
             self.serialNumLabel.text = deviceInfo.serialNumber;
-            self.hwRevLabel.text = deviceInfo.hardwareRevision;
             self.fwRevLabel.text = deviceInfo.firmwareRevision;
-            self.modelNumberLabel.text = deviceInfo.modelNumber;
         }
         
         // detect button (presumably never pressed on startup...)
@@ -128,13 +124,8 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
         });
     }
 
-    @IBAction func flashBlueLEDPressed(sender: AnyObject?=nil) {
-        NSLog("flashBlueLEDPressed");
-        self.device.led?.flashLEDColorAsync(UIColor.blueColor(), withIntensity: 1.0, numberOfFlashes: 5);
-    }
-
     func sendPulse(dutyCycle: Float, duration: UInt16) {
-        NSLog("pulse");
+        NSLog("sendPulse \(dutyCycle) \(duration)");
         self.device.hapticBuzzer!.startHapticWithDutyCycleAsync(UInt8(dutyCycle * 255), pulseWidth: duration, completion: nil);
     }
 
@@ -154,11 +145,16 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
     
     func websocketDidConnect(socket: WebSocket) {
         NSLog("websocketDidConnect")
+        self.serverState.text = "Contacted";
     }
     
     func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
         NSLog("websocketDidDisconnect: \(error?.localizedDescription)")
-        // TODO: should attempt to reconnect
+        self.serverState.text = "Disconnected";
+        self.delay(5.0) {
+            self.socket.connect();
+            self.serverState.text = "Connecting";
+        }
     }
     
     func websocketDidReceiveMessage(socket: WebSocket, text: String) {
@@ -170,8 +166,6 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
         } catch {
             NSLog("--> error serializing JSON: \(error)")
         }
-        
-        
         
         if data != nil {
             for (key, value) in data! {
@@ -186,9 +180,11 @@ class DeviceViewController: UITableViewController, WebSocketDelegate {
                 if key == "linked" {
                     if value as! Bool == true {
                         NSLog("--> link established")
+                        self.serverState.text = "Connected";
                         self.sendPulse(0.5, duration: 500);
                     } else {
                         NSLog("--> link failed")
+                        self.serverState.text = "Failed";
                     }
                 }
                 
