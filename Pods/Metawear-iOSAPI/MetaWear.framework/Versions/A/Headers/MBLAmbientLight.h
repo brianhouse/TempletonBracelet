@@ -50,10 +50,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Data representing the intensity of visible light present.
  Event callbacks will be provided an MBLNumericData object whose
- float value will be illuminance in lux.
+ double value will be illuminance in lux.
  NOT YET IMPLEMENTED
  */
-@property (nonatomic, readonly, nullable) MBLData MBL_GENERIC(MBLNumericData *) *illuminance;
+@property (nonatomic, readonly, nullable) MBLData<MBLNumericData *> *illuminance;
 
 @end
 

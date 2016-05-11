@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
  The data switch filter conditionally allows the input values to pass.  It can either
  be on or off, or put into a countdown mode where it allows N samples to pass.
  */
-@interface MBLDataSwitch MBL_GENERIC(MBLGenericType) : MBLFilter MBL_GENERIC(MBLGenericType)
+@interface MBLDataSwitch<ResultType> : MBLFilter<ResultType>
 
 /**
  Set the countdown to a specific value.  This will allows 'count' values to pass through.

@@ -35,6 +35,6 @@
 
 #import <MetaWear/MBLEvent.h>
 
-@interface MBLEntityEvent MBL_GENERIC(MBLGenericType) : MBLEvent MBL_GENERIC(MBLGenericType)
+@interface MBLEntityEvent<ResultType> : MBLEvent<ResultType>
 
 @end

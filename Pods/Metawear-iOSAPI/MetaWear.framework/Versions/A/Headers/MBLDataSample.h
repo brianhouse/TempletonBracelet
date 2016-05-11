@@ -51,6 +51,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly, nullable) NSData *data;
 
+/*
+ A standardized CSV, new-line terminated representation of the sample
+ */
+@property (nonatomic, readonly, nullable) NSString *csvRepresentation;
+
 @end
 
 NS_ASSUME_NONNULL_END

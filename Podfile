@@ -5,5 +5,5 @@ use_frameworks!
 target 'TempletonBracelet' do
 pod 'Metawear-iOSAPI'
 pod 'MBProgressHUD'
-pod 'Starscream', '~> 1.1.1'
+pod 'Starscream'
 end

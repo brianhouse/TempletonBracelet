@@ -36,9 +36,9 @@
 #import <MetaWear/MBLConstants.h>
 #import <MetaWear/MBLRegister.h>
 #import <Bolts/Bolts.h>
-@class MBLData MBL_GENERIC(MBLGenericType);
-@class MBLFilter MBL_GENERIC(MBLGenericType);
-@class MBLDataSwitch MBL_GENERIC(MBLGenericType);
+@class MBLData<ResultType>;
+@class MBLFilter<ResultType>;
+@class MBLDataSwitch<ResultType>;
 @class MBLNumericData;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -68,7 +68,9 @@ typedef NS_ENUM(uint8_t, MBLArithmeticOperation) {
     MBLArithmeticOperationSquareRoot = 6,
     MBLArithmeticOperationLeftShift = 7,
     MBLArithmeticOperationRightShift = 8,
-    MBLArithmeticOperationSubtract = 9
+    MBLArithmeticOperationSubtract = 9,
+    MBLArithmeticOperationAbsoluteValue = 10,
+    MBLArithmeticOperationConstantOutput = 11
 };
 
 /**
@@ -161,9 +163,9 @@ typedef NS_ENUM(uint8_t, MBLThresholdValueOutput) {
  setConfiguration:handler: on the MBLMetaWear object to save any properties on your custom
  MBLRestorable object.
  */
-@interface MBLEvent MBL_GENERIC(MBLGenericType) : MBLRegister
+@interface MBLEvent<ResultType> : MBLRegister
 
-typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *__nullable error);
+typedef void (^MBLNotificationHandler)(ResultType __nullable obj, NSError *__nullable error);
 
 ///----------------------------------
 /// @name Notifications
@@ -236,10 +238,9 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  @param stopLogging YES: Stop logging the current event, NO: Keep logging the event after download
  @param progressHandler Periodically called while log download is in progress
  */
-- (BFTask MBL_GENERIC(NSArray MBL_GENERIC(MBLGenericType) *) *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging
-                                                                              progressHandler:(nullable MBLFloatHandler)progressHandler;
+- (BFTask<NSArray<ResultType> *> *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging progressHandler:(nullable MBLFloatHandler)progressHandler;
 
-- (BFTask MBL_GENERIC(NSArray MBL_GENERIC(MBLGenericType) *) *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging;
+- (BFTask<NSArray<ResultType> *> *)downloadLogAndStopLoggingAsync:(BOOL)stopLogging;
 
 /**
  See if this event is currently being logged
@@ -258,7 +259,7 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  @param pass Initially allow samples to pass or not
  @returns New event that conditionally represents the input
  */
-- (MBLDataSwitch MBL_GENERIC(MBLGenericType) *)conditionalDataSwitch:(BOOL)pass;
+- (MBLDataSwitch<ResultType> *)conditionalDataSwitch:(BOOL)pass;
 
 /**
  Create a new event that allows N input samples to pass to the output.
@@ -267,14 +268,14 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  @param initialCount Number of samples to allow through
  @returns New event representing N events of the input
  */
-- (MBLDataSwitch MBL_GENERIC(MBLGenericType) *)countingDataSwitch:(uint16_t)initialCount;
+- (MBLDataSwitch<ResultType> *)countingDataSwitch:(uint16_t)initialCount;
 
 /**
  Create a new event that accumulates the output data values of the current event.
  Event callbacks will be provided the same object as the input.
  @returns New event representing accumulated output
  */
-- (MBLFilter MBL_GENERIC(MBLGenericType) *)summationOfEvent;
+- (MBLFilter<ResultType> *)summationOfEvent;
 
 /**
  Create a new event that accumulates the number of times the current event fires.
@@ -282,7 +283,7 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  will be the number of times the input event fired.
  @returns New event representing counted intput
  */
-- (MBLFilter MBL_GENERIC(MBLNumericData *) *)counterOfEvent;
+- (MBLFilter<MBLNumericData *> *)counterOfEvent;
 
 /**
  Create a new event that averages the output data of the current event. This
@@ -291,7 +292,7 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  @param depth Number of samples to average (works fastest if a power of 2)
  @returns New event representing average of input
  */
-- (MBLFilter MBL_GENERIC(MBLGenericType) *)averageOfEventWithDepth:(uint8_t)depth;
+- (MBLFilter<ResultType> *)averageOfEventWithDepth:(uint8_t)depth;
 
 /**
  Create a new event that compares the current event and passes through the
@@ -301,7 +302,7 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  @parma data Value on the right hand side of the operation
  @returns New event representing input values that meet the comparison condition
  */
-- (MBLFilter MBL_GENERIC(MBLGenericType) *)compareEventUsingOperation:(MBLComparisonOperation)op withData:(float)data;
+- (MBLFilter<ResultType> *)compareEventUsingOperation:(MBLComparisonOperation)op withData:(double)data;
 
 /**
  Create a new event that occurs at most once every period milliseconds.
@@ -309,7 +310,7 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  @param periodInMsec Sample period in msec
  @returns New event representing periodically sampled output
  */
-- (MBLFilter MBL_GENERIC(MBLGenericType) *)periodicSampleOfEvent:(uint32_t)periodInMsec;
+- (MBLFilter<ResultType> *)periodicSampleOfEvent:(uint32_t)periodInMsec;
 
 /**
  Create a new event that represents the difference bettween the current event
@@ -319,7 +320,7 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  @param periodInMsec Sample period in msec
  @returns New event representing differential output
  */
-- (MBLFilter MBL_GENERIC(MBLGenericType) *)differentialSampleOfEvent:(uint32_t)periodInMsec;
+- (MBLFilter<ResultType> *)differentialSampleOfEvent:(uint32_t)periodInMsec;
 
 /**
  Create a new event that delays the current even by a given number of samples.
@@ -327,7 +328,7 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  @param count Number of samples to delay
  @returns New event representing a delayed version of the input
  */
-- (MBLFilter MBL_GENERIC(MBLGenericType) *)delayOfEventWithCount:(uint8_t)count;
+- (MBLFilter<ResultType> *)delayOfEventWithCount:(uint8_t)count;
 
 /**
  Create a new event that represents a pulse of the input.  A pulse event will be
@@ -341,7 +342,7 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  @param output Select the type of data this filter should output
  @returns New event representing a pulse of the input
  */
-- (MBLFilter *)pulseDetectorOfEventWithThreshold:(float)threshold width:(uint16_t)width output:(MBLPulseOutput)output;
+- (MBLFilter *)pulseDetectorOfEventWithThreshold:(double)threshold width:(uint16_t)width output:(MBLPulseOutput)output;
 
 /**
  Create a new event that occurs when the given event changes by a specified delta.
@@ -352,7 +353,7 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  @param output Select the type of data this filter should output
  @returns New event representing a changed of the input
  */
-- (MBLFilter *)changeOfEventByDelta:(float)delta output:(MBLDeltaValueOutput)output;
+- (MBLFilter *)changeOfEventByDelta:(double)delta output:(MBLDeltaValueOutput)output;
 
 /**
  Create a new event that occurs when the given event crosses a specified threshold.
@@ -362,7 +363,7 @@ typedef void (^MBLNotificationHandler)(MBLGenericType __nullable obj, NSError *_
  @param output Select the type of data this filter should output
  @returns New event representing a changed of the input
  */
-- (MBLFilter MBL_GENERIC(MBLGenericType) *)changeOfEventAcrossThreshold:(float)threshold hysteresis:(float)hysteresis output:(MBLThresholdValueOutput)output;
+- (MBLFilter<ResultType> *)changeOfEventAcrossThreshold:(double)threshold hysteresis:(double)hysteresis output:(MBLThresholdValueOutput)output;
 
 /**
  Create a new event that occurs at the same time of this event, but whose value is

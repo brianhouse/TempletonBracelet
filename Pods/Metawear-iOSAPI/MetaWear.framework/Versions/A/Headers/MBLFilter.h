@@ -34,14 +34,14 @@
  */
 
 #import <MetaWear/MBLEntityEvent.h>
-@class MBLData MBL_GENERIC(MBLGenericType);
+@class MBLData<ResultType>;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  The MBLFilter takes an MBLEvent as input, then performs some operation and produces an output.
  */
-@interface MBLFilter MBL_GENERIC(MBLGenericType) : MBLEntityEvent MBL_GENERIC(MBLGenericType)
+@interface MBLFilter<ResultType> : MBLEntityEvent<ResultType>
 
 /**
  Reset the internal state of the filter
@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param period Period time in mSec
  @returns New event that will read this data periodically
  */
-- (MBLEvent MBL_GENERIC(MBLGenericType) *)periodicReadWithPeriod:(uint32_t)period;
+- (MBLEvent<ResultType> *)periodicReadWithPeriod:(uint32_t)period;
 
 @end
 

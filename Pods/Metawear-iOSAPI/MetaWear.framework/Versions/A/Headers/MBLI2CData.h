@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Interface for reading/writing a specific I2C device register.
  */
-@interface MBLI2CData MBL_GENERIC(MBLGenericType) : MBLData MBL_GENERIC(MBLGenericType)
+@interface MBLI2CData<ResultType> : MBLData<ResultType>
 
 /**
  Write the given value to the I2C register

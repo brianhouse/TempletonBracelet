@@ -50,10 +50,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Array of MBLData (or derived class) objects corresponding to the different
  temperature sensors available on this particular MetaWear. Event callbacks
- will be provided an MBLNumericData object whose float value will be
+ will be provided an MBLNumericData object whose double value will be
  degrees Celsius.
  */
-@property (nonatomic, readonly) NSArray MBL_GENERIC(MBLData MBL_GENERIC(MBLNumericData *) *) *channels;
+@property (nonatomic, readonly) NSArray<MBLData<MBLNumericData *> *> *channels;
 
 ///----------------------------------
 /// @name Convenient Assessors - also available via channels[N]
@@ -62,26 +62,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Data representing the current temperate of the internal (on-die) sensor.
  This is guaranteed to always be available (equal to channels[0]).
- Event callbacks will be provided an MBLNumericData object whose float 
+ Event callbacks will be provided an MBLNumericData object whose double 
  value will be degrees Celsius.
  */
-@property (nonatomic, readonly) MBLData MBL_GENERIC(MBLNumericData *) *internal;
+@property (nonatomic, readonly) MBLData<MBLNumericData *> *onDieThermistor;
+@property (nonatomic, readonly) MBLData<MBLNumericData *> *internal DEPRECATED_MSG_ATTRIBUTE("Use onDieThermistor instead");
 
 /**
  Data representing the current temperate of the external thermistor, if
  equiped. This is a thermistor that you connect manually, so you need
  to setup readPin and enablePin on the MBLExternalThermistor object.
- Event callbacks will be provided an MBLNumericData object whose float
+ Event callbacks will be provided an MBLNumericData object whose double
  value will be degrees Celsius.
  */
-@property (nonatomic, readonly, nullable) MBLExternalThermistor MBL_GENERIC(MBLNumericData *) *externalThermistor;
+@property (nonatomic, readonly, nullable) MBLExternalThermistor<MBLNumericData *> *externalThermistor;
 
 /**
  Data representing the current temperate of the on-board thermistor, if
  equiped. Event callbacks will be provided an MBLNumericData object whose
- float value will be degrees Celsius.
+ double value will be degrees Celsius.
  */
-@property (nonatomic, readonly, nullable) MBLData MBL_GENERIC(MBLNumericData *) *onboardThermistor;
+@property (nonatomic, readonly, nullable) MBLData<MBLNumericData *> *onboardThermistor;
 
 @end
 

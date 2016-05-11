@@ -50,9 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
  Event callbacks will be provided an MBLDataSample object whose data
  property can be used to access the data as bytes.
  */
-- (MBLI2CData MBL_GENERIC(MBLDataSample *) *)dataAtDeviceAddress:(uint8_t)deviceAddress
-                                                 registerAddress:(uint8_t)registerAddress
-                                                          length:(uint8_t)length;
+- (MBLI2CData<MBLDataSample *> *)dataAtDeviceAddress:(uint8_t)deviceAddress
+                                     registerAddress:(uint8_t)registerAddress
+                                              length:(uint8_t)length;
 
 /**
  Create an I2C data endpoint.  The deivce and register address
@@ -60,10 +60,10 @@ NS_ASSUME_NONNULL_BEGIN
  Event callbacks will be provided an MBLNumericData object whose value
  will contain the register value formatted as a number.
  */
-- (MBLI2CData MBL_GENERIC(MBLDataSample *) *)numberAtDeviceAddress:(uint8_t)deviceAddress
-                                                   registerAddress:(uint8_t)registerAddress
-                                                            length:(uint8_t)length
-                                                          isSigned:(BOOL)isSigned;
+- (MBLI2CData<MBLDataSample *> *)numberAtDeviceAddress:(uint8_t)deviceAddress
+                                       registerAddress:(uint8_t)registerAddress
+                                                length:(uint8_t)length
+                                              isSigned:(BOOL)isSigned;
 
 @end
 

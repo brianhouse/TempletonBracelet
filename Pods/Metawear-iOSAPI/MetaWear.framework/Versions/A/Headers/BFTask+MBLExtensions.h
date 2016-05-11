@@ -54,9 +54,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Convience functions for dealing with BFTasks within the MetaWear SDK
  */
-@interface BFTask MBL_GENERIC(__covariant MBLGenericType) (MBLExtensions)
+@interface BFTask<__covariant ResultType> (MBLExtensions)
 
-typedef void (^MBLSuccessBlock)(MBLGenericType result);
+typedef void (^MBLSuccessBlock)(ResultType result);
 typedef void (^MBLErrorBlock)(NSError *error);
 
 /**

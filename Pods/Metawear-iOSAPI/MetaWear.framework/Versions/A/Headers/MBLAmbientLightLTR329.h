@@ -99,9 +99,9 @@ typedef NS_ENUM(uint8_t, MBLAmbientLightLTR329Rate) {
 /**
  Data representing the visible light response measured by the sensor. Period
  of event will depend on measurementRate. Event callbacks will be provided
- an MBLNumericData object whose float value will be illuminance in lux. 
+ an MBLNumericData object whose double value will be illuminance in lux. 
  */
-@property (nonatomic, readonly) MBLEvent MBL_GENERIC(MBLNumericData *) *periodicIlluminance;
+@property (nonatomic, readonly) MBLEvent<MBLNumericData *> *periodicIlluminance;
 
 @end
 

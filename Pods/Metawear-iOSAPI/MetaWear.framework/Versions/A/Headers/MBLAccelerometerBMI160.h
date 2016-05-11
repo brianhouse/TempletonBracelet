@@ -33,70 +33,36 @@
  * contact MbientLab via email: hello@mbientlab.com
  */
 
-#import <MetaWear/MBLAccelerometer.h>
+#import <MetaWear/MBLAccelerometerBosch.h>
 #import <MetaWear/bmi160.h>
 @class MBLNumericData;
+@class MBLAccelerometerBMI160MotionEvent;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Accelerometer sensitiviy ranges
- */
-typedef NS_ENUM(uint8_t, MBLAccelerometerBMI160Range) {
-    MBLAccelerometerBMI160Range2G = BMI160_ACCEL_RANGE_2G,
-    MBLAccelerometerBMI160Range4G = BMI160_ACCEL_RANGE_4G,
-    MBLAccelerometerBMI160Range8G = BMI160_ACCEL_RANGE_8G,
-    MBLAccelerometerBMI160Range16G = BMI160_ACCEL_RANGE_16G,
-};
-
-/**
  Interface to a BMI160 accelerometer
  */
-@interface MBLAccelerometerBMI160 : MBLAccelerometer
-/**
- Maximum acceleration the accelerometer can report
- */
-@property (nonatomic) MBLAccelerometerBMI160Range fullScaleRange;
-
+@interface MBLAccelerometerBMI160 : MBLAccelerometerBosch
 
 /**
- Select the type of taps to be registered. When MBLAccelerometerTapModeBoth is used,
- you will get two events on a double tap, one for the single and one for the double.
- */
-@property (nonatomic) MBLAccelerometerTapType tapType;
-/**
- Event representing a tap (single, double, or both based on tapType) on the tapDetectionAxis.
+ Event representing a motion (change of acceleration) event.
  Event callbacks will be provided an empty MBLDataSample object
  */
-@property (nonatomic, readonly) MBLEvent MBL_GENERIC(MBLDataSample *) *tapEvent;
-
-
-/**
- Event representing an orientation change.
- Event callbacks will be provided an MBLOrientationData object
- */
-@property (nonatomic, readonly) MBLEvent MBL_GENERIC(MBLOrientationData *) *orientationEvent;
-
-
-/**
- Event representing the device being laid down flat (or removed from a flat posistion).
- Event callbacks will be provided an MBLNumericData object, where a bool value of
- YES means flat, and NO means not-flat.
- */
-@property (nonatomic, readonly) MBLEvent MBL_GENERIC(MBLNumericData *) *flatEvent;
+@property (nonatomic, readonly) MBLAccelerometerBMI160MotionEvent *motionEvent;
 
 
 /**
  This event will fire when a step pattern is detected. Event callbacks will be provided
  an MBLNumericData object, whose int value is always 1.
  */
-@property (nonatomic, readonly) MBLEvent MBL_GENERIC(MBLNumericData *) *stepEvent;
+@property (nonatomic, readonly) MBLEvent<MBLNumericData *> *stepEvent;
 /**
  This data endpoint keeps a running counter in hardware of the number of steps taken.
  Event callbacks will be provided an MBLNumericData object, whose unsigened value is
  the number steps taken.  Note this only counts up when stepEvent is active.
  */
-@property (nonatomic, readonly) MBLData MBL_GENERIC(MBLNumericData *) *stepCounter;
+@property (nonatomic, readonly) MBLData<MBLNumericData *> *stepCounter;
 /**
  Use this to reset stepCounter to 0
  */

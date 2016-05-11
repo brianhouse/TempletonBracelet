@@ -107,13 +107,13 @@ typedef NS_ENUM(uint8_t, MBLANCSNotificationAttributeID) {
  Event representing an ANCS event of one or more CategoryID's. Event callbacks will
  be provided an MBLANCSEventData object.
  */
-- (MBLEvent MBL_GENERIC(MBLANCSEventData *) *)eventWithCategoryIds:(MBLANCSCategoryID)categoryIds;
+- (MBLEvent<MBLANCSEventData *> *)eventWithCategoryIds:(MBLANCSCategoryID)categoryIds;
 
 /**
  Event representing an ANCS event of a specific CategoryID, EventID, and EventFlags.
  Event callbacks will be provided an MBLANCSEventData object.
  */
-- (MBLEvent MBL_GENERIC(MBLANCSEventData *) *)eventWithCategoryIds:(MBLANCSCategoryID)categoryIds
+- (MBLEvent<MBLANCSEventData *> *)eventWithCategoryIds:(MBLANCSCategoryID)categoryIds
                                                           eventIds:(MBLANCSEventID)eventIds
                                                         eventFlags:(MBLANCSEventFlag)eventFlags;
 
@@ -121,7 +121,7 @@ typedef NS_ENUM(uint8_t, MBLANCSNotificationAttributeID) {
  Event representing an ANCS event of a specific CategoryID, EventID, EventFlags, and Notification Attribute.
  Event callbacks will be provided an MBLANCSEventData object.
  */
-- (MBLEvent MBL_GENERIC(MBLANCSEventData *) *)eventWithCategoryIds:(MBLANCSCategoryID)categoryIds
+- (MBLEvent<MBLANCSEventData *> *)eventWithCategoryIds:(MBLANCSCategoryID)categoryIds
                                                           eventIds:(MBLANCSEventID)eventIds
                                                         eventFlags:(MBLANCSEventFlag)eventFlags
                                                        attributeId:(MBLANCSNotificationAttributeID)attributeId

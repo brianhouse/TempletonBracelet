@@ -42,23 +42,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Interface to an abstract barometer sensor. If you need more advanced
- features then upcast to the specific sensor on your board, MBLBarometerBMP280.
- @see MBLAmbientLightLTR329
+ features then upcast to the specific sensor on your board, MBLBarometerBMP280 or MBLBarometerBME280.
+ @see MBLBarometerBMP280
+ @see MBLBarometerBME280
  */
 @interface MBLBarometer : MBLModule
 
 /**
  Data representing the atmospheric pressure measured by barometer.
- Event callbacks will be provided an MBLNumericData object whose float
+ Event callbacks will be provided an MBLNumericData object whose double
  value will be pressure in pascals.
  */
-@property (nonatomic, readonly) MBLData MBL_GENERIC(MBLNumericData *) *pressure;
+@property (nonatomic, readonly) MBLData<MBLNumericData *> *pressure;
 /**
  Data representing the altidue calulated from atmospheric pressure.
- Event callbacks will be provided an MBLNumericData object whose float
+ Event callbacks will be provided an MBLNumericData object whose double
  value will be altitude in meters.
  */
-@property (nonatomic, readonly) MBLData MBL_GENERIC(MBLNumericData *) *altitude;
+@property (nonatomic, readonly) MBLData<MBLNumericData *> *altitude;
 
 @end
 

@@ -36,20 +36,21 @@
 #import <MetaWear/MBLConstants.h>
 #import <MetaWear/MBLRegister.h>
 #import <Bolts/Bolts.h>
-@class MBLEvent MBL_GENERIC(MBLGenericType);
+@class MBLEvent<ResultType>;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  This object represents synchronous data from sensors and peripherals on the MetaWear board.
  */
-@interface MBLData MBL_GENERIC(MBLGenericType) : MBLRegister
+@interface MBLData<ResultType> : MBLRegister
+
+typedef void (^MBLDataNotificationHandler)(ResultType __nullable obj, NSError *__nullable error);
 
 /**
  Perform a one time read of the current value, use the returned BFTask to get value.
  */
-- (BFTask MBL_GENERIC(MBLGenericType) *)readAsync;
-
+- (BFTask<ResultType> *)readAsync;
 
 /**
  Create a new event that will periodically read this data a fixed number of times.
@@ -57,15 +58,29 @@ NS_ASSUME_NONNULL_BEGIN
  @param repeatCount Number of times event will be triggered, 0xFFFF will repeat forever
  @returns New event that will read this data periodically
  */
-- (MBLEvent MBL_GENERIC(MBLGenericType) *)periodicReadWithPeriod:(uint32_t)period
-                                                     repeatCount:(uint16_t)repeatCount;
+- (MBLEvent<ResultType> *)periodicReadWithPeriod:(uint32_t)period
+                                     repeatCount:(uint16_t)repeatCount;
 
 /**
  Create a new event that will periodically read this data until canceled.
  @param period Period time in mSec
  @returns New event that will read this data periodically
  */
-- (MBLEvent MBL_GENERIC(MBLGenericType) *)periodicReadWithPeriod:(uint32_t)period;
+- (MBLEvent<ResultType> *)periodicReadWithPeriod:(uint32_t)period;
+
+
+/**
+ Manually receive callbacks when this data is read, note you need to set up something 
+ else that will perform the actual reads. The type of the object that is passed to the
+ handler depends on the event being handled
+ @param handler Block invoked when this data is read
+ */
+- (void)addNotificationsHandler:(nullable MBLDataNotificationHandler)handler;
+
+/**
+ Remove all notification handlers for this data object
+ */
+- (void)removeNotificationHandlers;
 
 @end
 

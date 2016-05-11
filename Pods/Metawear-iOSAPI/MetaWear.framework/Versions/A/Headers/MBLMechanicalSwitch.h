@@ -50,14 +50,14 @@ NS_ASSUME_NONNULL_BEGIN
  Event callbacks will be provided an MBLNumericData object, where a bool value of
  YES means pressed, and NO means released.
  */
-@property (nonatomic, readonly) MBLData MBL_GENERIC(MBLNumericData *) *switchValue;
+@property (nonatomic, readonly) MBLData<MBLNumericData *> *switchValue;
 
 /**
  Event representing a change in the push button state (pressed/depressed).
  Event callbacks will be provided an MBLNumericData object, where a bool value of
  YES means pressed, and NO means released.
  */
-@property (nonatomic, readonly) MBLEvent MBL_GENERIC(MBLNumericData *) *switchUpdateEvent;
+@property (nonatomic, readonly) MBLEvent<MBLNumericData *> *switchUpdateEvent;
 
 @end
 

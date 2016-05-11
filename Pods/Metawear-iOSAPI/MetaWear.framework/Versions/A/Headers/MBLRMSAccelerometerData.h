@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  RMS value of x, y, and z in G's
  */
-@property (nonatomic, readonly) float rms;
+@property (nonatomic, readonly) double rms;
 @end
 
 NS_ASSUME_NONNULL_END

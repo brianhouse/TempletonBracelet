@@ -1,19 +1,24 @@
 PODS:
-  - Bolts/Tasks (1.5.0)
+  - Bolts/Tasks (1.7.0)
+  - FastCoding (3.2.1)
   - MBProgressHUD (0.9.2)
-  - Metawear-iOSAPI (2.0.0):
-    - Bolts/Tasks (~> 1.5)
-  - Starscream (1.1.1)
+  - Metawear-iOSAPI (2.4.0):
+    - Bolts/Tasks (~> 1.7)
+    - FastCoding (~> 3.2.1)
+  - Starscream (1.1.3)
 
 DEPENDENCIES:
   - MBProgressHUD
   - Metawear-iOSAPI
-  - Starscream (~> 1.1.1)
+  - Starscream
 
 SPEC CHECKSUMS:
-  Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  FastCoding: ed46c83ba23d048aafa0251972a1e1fc1cfc58ed
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  Metawear-iOSAPI: 1a16d8f45cee76f1e18b11cb6f34dac01ce28b36
-  Starscream: d74dd8d122a6abd244d8d5e51f32891c796d0827
+  Metawear-iOSAPI: 33455c46f2acd0f3140a232d94e92597c5dd28b4
+  Starscream: d662732354b40dd19ed1ece3e3c44c80b536b83c
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: ce0f515686e29ed579e7b4a1fdc33791e7536caa
+
+COCOAPODS: 1.0.0

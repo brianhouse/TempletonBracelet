@@ -48,21 +48,21 @@ NS_ASSUME_NONNULL_BEGIN
  of the thumb points toward positive X, a positive rotation is one toward 
  the tips of the other four fingers.
  */
-@property (nonatomic, readonly) float x;
+@property (nonatomic, readonly) double x;
 /**
  The Y-axis rotation rate in degrees per second. The sign follows the right
  hand rule: If the right hand is wrapped around the Y axis such that the tip
  of the thumb points toward positive Y, a positive rotation is one toward
  the tips of the other four fingers.
  */
-@property (nonatomic, readonly) float y;
+@property (nonatomic, readonly) double y;
 /**
  The Z-axis rotation rate in degrees per second. The sign follows the right
  hand rule: If the right hand is wrapped around the Z axis such that the tip
  of the thumb points toward positive Z, a positive rotation is one toward
  the tips of the other four fingers.
  */
-@property (nonatomic, readonly) float z;
+@property (nonatomic, readonly) double z;
 
 @end
 
